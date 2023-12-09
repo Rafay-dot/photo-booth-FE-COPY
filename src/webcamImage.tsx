@@ -1,11 +1,9 @@
 import Webcam from "react-webcam";
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, ReactNode } from "react";
 
-function WebcamImage() {
-  const webcamRef =  useRef<Webcam>(null);
-  const [img, setImg] = useState(null);
-
-
+const WebcamImage = () => {
+  const webcamRef = useRef<Webcam>(null);
+  const [img, setImg] = useState<string | null>(null);
   const videoConstraints = {
     width: 390,
     height: 390,
@@ -13,7 +11,8 @@ function WebcamImage() {
   };
 
   return (
-<div>      {img === null ? (
+    <div>
+      {img === null ? (
         <>
           <Webcam
             screenshotFormat="image/jpeg"
@@ -24,7 +23,7 @@ function WebcamImage() {
             ref={webcamRef}
             mirrored={true}
           />
-          <button >Capture photo</button>
+          <button onClick={() => {/* Capture photo logic */}}>Capture photo</button>
         </>
       ) : (
         <>

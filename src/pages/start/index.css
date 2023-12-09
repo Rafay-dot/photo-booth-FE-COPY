@@ -1,0 +1,27 @@
+
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.centerized-container {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* width: 600px; */
+  height: 600px;
+  background-color: red;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.word {
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
