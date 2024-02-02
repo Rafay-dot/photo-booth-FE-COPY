@@ -13,9 +13,10 @@ const SlideShow = () => {
 
   return(
     <div className="content" ref={contentRef}>
-      <Slide backgroundImg='/assets/images/jpeg/14.jpeg' />
-      <Slide backgroundImg='/assets/images/jpeg/15.jpeg' />
-      <Slide backgroundImg='/assets/images/jpeg/16.jpeg' />
+      <Slide backgroundImg='/assets/images/jpeg/TTS_1.jpg' />
+      <Slide backgroundImg='/assets/images/jpeg/TTS_2.jpeg' />
+      <Slide backgroundImg='/assets/images/jpeg/TTS_3.jpeg' />
+      <Slide backgroundImg='/assets/images/jpeg/TTS_4.jpg' />
     </div>
   );
 };
