@@ -1,9 +1,7 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Start from "./pages/start/Start";
 import Camera from "./pages/camera/Camera";
 import MyCollage from "./pages/photoSelection/collage";
-// import TemplateSelector from './components/TemplateSelector';
 
 const App = () => {
   return (

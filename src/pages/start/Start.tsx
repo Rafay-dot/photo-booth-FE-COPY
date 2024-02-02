@@ -1,22 +1,21 @@
-import "./index.css";
 import { useNavigate } from "react-router-dom";
+import SlideShow from "./SlideShow";
+import "./index.css";
 
 const Start = () => {
   const navigate = useNavigate();
+
   return (
-    <div className="page">
-      <div className="centerized-container">
-        <div
-          className="container"
-          onClick={() => {
-            navigate("/camera");
-          }}
-        >
-          <div className="word">TOUCH</div>
-          <div className="word">TO</div>
-          <div className="word">START</div>
-        </div>
+    <div
+      className="page"
+      onClick={() => {
+        navigate("/camera");
+      }}
+    >
+      <div className="frame">
+        <p className="frame__tagline">Project by <span className="colored__tagline">Codeyssey</span></p>
       </div>
+      <SlideShow></SlideShow>
     </div>
   );
 };
