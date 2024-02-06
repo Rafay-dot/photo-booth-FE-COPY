@@ -12,6 +12,7 @@ body {
   background-size: cover;
   position: relative;
   overflow: hidden;
+  padding: 0px;
 }
 
 body::before {

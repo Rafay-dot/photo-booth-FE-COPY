@@ -37,7 +37,7 @@ const Collage = () => {
   };
 
   return (
-    <div className="page">
+    <div className="container">
       {/* Page Header */}
       <CandidHeading text="SELECT YOUR PICTURES" />
       {/* Page Content */}
