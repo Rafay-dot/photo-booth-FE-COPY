@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import SlideShow from "./SlideShow";
+import SlideShow from "../../components/SlideShow";
 import "./index.css";
 
 const Start = () => {

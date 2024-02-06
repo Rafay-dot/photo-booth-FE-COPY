@@ -1,25 +1,23 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect, useRef } from "react";
-import html2canvas from "html2canvas";
-import "./styles.css";
-import ImageGrid from "./imageGrid";
 import { useLocation } from "react-router-dom";
+import html2canvas from "html2canvas";
+import ImageGrid from "../../components/imageGrid";
+import PrintBtn from "../../components/print_btn";
+import CandidHeading from "../../components/candid_header";
+import "./styles.css";
 
-// const photos = [
-//   "https://cdn.pixabay.com/photo/2021/07/30/20/28/montmartre-6510653_960_720.jpg",
-
-//   "https://cdn.pixabay.com/photo/2021/06/27/14/32/raspberry-6368999_960_720.png",
-
-//   "https://cdn.pixabay.com/photo/2019/06/22/18/31/love-4292211_960_720.jpg",
-//   "https://cdn.pixabay.com/photo/2021/07/30/20/28/montmartre-6510653_960_720.jpg",
-// ];
-// const imageUrls1 = photos.map((photo) => photo.source);
 let count = 0;
 const Collage = () => {
   const location = useLocation();
-  const photos = location.state?.images;
   const componentRef = useRef(null);
+  const photos = location.state?.images;
   const [url, setUrl] = useState<string>("");
   const [photoUrls, setPhotoUrls] = useState<string[]>([...photos]);
+
+  useEffect(() => {
+    captureComponent();
+  }, [photoUrls]);
 
   const handlePictureChange = (image: string) => {
     const temparr = [...photoUrls];
@@ -37,98 +35,67 @@ const Collage = () => {
       setUrl(image);
     }
   };
-  useEffect(() => {
-    captureComponent();
-  }, [photoUrls]);
 
   return (
-    <div className="container">
-      <div
-        className="board"
-        ref={componentRef}
-        style={{ background: "black", width: "400px", height: "500px" }}
-      >
-        <div>
-          <ImageGrid imageUrls={photoUrls} />
+    <div className="page">
+      {/* Page Header */}
+      <CandidHeading text="SELECT YOUR PICTURES" />
+      {/* Page Content */}
+      <div className="page-content">
+        {/* This is the Collage/Polaroid */}
+        <div
+          className="polaroid"
+          ref={componentRef}
+        >
+          <p className="polaroid-text">CANDID</p>
+          <div>
+            <ImageGrid imageUrls={photoUrls} />
+          </div>
+          {/* TODO: Add date functionality */}
+          <p className="polaroid-text">XXVII - VII - XV</p>
         </div>
-      </div>
-      <div className="selection-container">
-        <div className="selection-row">
-          {photos.slice(0, 4).map((photo: any) => (
-            <button
-              className="image-button"
-              style={{
-                width: 200,
-                height: 219,
-                margin: 10,
-                padding: 0,
-                background: "transparent",
-                border: "#00ff00",
-              }}
-              onClick={() => {
-                handlePictureChange(photo);
-              }}
-              key={photo}
-            >
-              {photo ? (
-                <img
-                  style={{
-                    width: 200,
-                    height: 219,
-                  }}
-                  src={photo}
-                  alt="selection"
-                  key={photo}
-                />
-              ) : (
-                ""
-              )}
-            </button>
-          ))}
-        </div>
-        <div className="selection-row">
-          {photos.slice(4, 8).map((photo: any) => (
-            <button
-              className="image-button"
-              style={{
-                width: 200,
-                height: 219,
-                margin: 10,
-                padding: 0,
-                background: "transparent",
-                border: "#00ff00",
-              }}
-              onClick={() => {
-                handlePictureChange(photo);
-              }}
-              key={photo}
-            >
-              {photo ? (
-                <img
-                  style={{
-                    width: 200,
-                    height: 219,
-                  }}
-                  src={photo}
-                  alt="selection"
-                  key={photo}
-                />
-              ) : (
-                ""
-              )}
-            </button>
-          ))}
-        </div>
-        <div className="selection-row">
-          <a href={url} download="captured-image.jpg">
-            <button
-              onClick={() => {
-                captureComponent();
-              }}
-            >
-              Print
-            </button>
-          </a>
+        {/* 8 Pictures Grid + Button */}
+        <div className="selection-container">
+          <div className="selection-row">
+            {photos.slice(0, 4).map((photo: any) => (
+              <button key={photo}
+                className="image-button"
+                onClick={() => {
+                  handlePictureChange(photo);
+                }}
+              >
+                {photo ? (
+                  <img key={photo}
+                    className="candid-image"
+                    src={photo}
+                    alt="Candid Image"
+                  />
+                ) : ""}
+              </button>
+            ))}
+          </div>
+          <div className="selection-row">
+            {photos.slice(4, 8).map((photo: any) => (
+              <button key={photo}
+                className="image-button"
+                onClick={() => {
+                  handlePictureChange(photo);
+                }}
+              >
+                {photo ? (
+                  <img key={photo}
+                    className="candid-image"
+                    src={photo}
+                    alt="Candid Image"
+                  />
+                ) : ""}
+              </button>
+            ))}
+          </div>
+          {/* Print Button */}
+          <div className="selection-row print-btn-placement">
+            <PrintBtn onClick={() => { captureComponent(); }}/>
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Michroma', sans-serif;
+  font-family: 'Michroma', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #171143;
@@ -35,4 +35,9 @@ code {
 
 .bungee-text {
   font-family: 'Bungee', sans-serif;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }

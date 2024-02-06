@@ -1,5 +1,5 @@
 // Slide.tsx
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import TextFX from './TextFX';
 
 interface SlideProps {

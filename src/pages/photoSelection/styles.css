@@ -1,31 +1,53 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 35px;
 }
-
-.board {
+.page-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+/* Styling For the Collage */
+.polaroid {
+  background: black;
   border: 5px solid black;
   overflow: hidden;
-}
-
-.image-grid {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
+  padding: 0px 5px;
+  align-items: center;
+  justify-content: center;
+} .polaroid-text {
+  font-family: 'Michroma', sans-serif;
+  font-size: 15px;
+  color: white;
+  letter-spacing: 2px;
+  padding: 20px;
 }
-
-.image-item {
-  flex: 1 0 20%;
-  width: auto;
-}
-
-.image-item img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.image-item-row {
+/* Styling for the image selection area */
+.selection-container {
   display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.selection-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}.image-button {
+  background: transparent;
+  width: 150px;
+  height: 150px;
+  margin: 7px;
+  border: none;
+}.candid-image {
+  width: 150px;
+  height: 155px;
+  border-radius: 10px;
+}.print-btn-placement {
+  margin-top: 30px;
 }
