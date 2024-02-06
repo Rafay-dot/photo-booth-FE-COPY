@@ -147,6 +147,6 @@
 .curved-text span{
   position: absolute;
   left: 50%;
-  font-size: 12px;
+  font-size: 20px;
   transform-origin: 0 75px;
 }
