@@ -42,7 +42,12 @@
   width: 150px;
   height: 150px;
   margin: 7px;
+  padding: 0;
   border: none;
+}.highlight-image {
+  border: 2px solid #FC5056;
+  border-radius: 10px;
+  z-index: 100;
 }.candid-image {
   width: 150px;
   height: 155px;

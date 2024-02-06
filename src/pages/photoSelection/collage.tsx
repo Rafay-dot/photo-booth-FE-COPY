@@ -6,27 +6,31 @@ import ImageGrid from "../../components/imageGrid";
 import PrintBtn from "../../components/print_btn";
 import CandidHeading from "../../components/candid_header";
 import "./styles.css";
+import { getTodayDateInRomanNumeral } from "../../utils/helper";
 
-let count = 0;
 const Collage = () => {
   const location = useLocation();
   const componentRef = useRef(null);
   const photos = location.state?.images;
   const [url, setUrl] = useState<string>("");
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [photoUrls, setPhotoUrls] = useState<string[]>([...photos]);
+  const [selectedPhotosIndexes, setSelectedPhotosIndexes] = useState<number[]>([0, 1, 2, 3]);
 
   useEffect(() => {
     captureComponent();
   }, [photoUrls]);
 
-  const handlePictureChange = (image: string) => {
-    const temparr = [...photoUrls];
-    temparr[count] = image;
-    count += 1;
-    if (count === 4) {
-      count = 0;
-    }
-    setPhotoUrls(temparr);
+  const handlePictureChange = (image: string, imageIndex: number) => {
+    const temp_selectedPhotos = [...photoUrls];
+    const temp_selectedPhotosIndexes = [...selectedPhotosIndexes];
+    temp_selectedPhotos[selectedIndex] = image;
+    temp_selectedPhotosIndexes[selectedIndex] = imageIndex;
+    if (selectedIndex === 3) {
+      setSelectedIndex(0);
+    } else setSelectedIndex((prevCount) => prevCount += 1);
+    setPhotoUrls(temp_selectedPhotos);
+    setSelectedPhotosIndexes(temp_selectedPhotosIndexes);
   };
   const captureComponent = async () => {
     if (componentRef.current !== null) {
@@ -52,21 +56,24 @@ const Collage = () => {
             <ImageGrid imageUrls={photoUrls} />
           </div>
           {/* TODO: Add date functionality */}
-          <p className="polaroid-text">XXVII - VII - XV</p>
+          <p className="polaroid-text">{ getTodayDateInRomanNumeral() }</p>
         </div>
         {/* 8 Pictures Grid + Button */}
         <div className="selection-container">
           <div className="selection-row">
-            {photos.slice(0, 4).map((photo: any) => (
+            {photos.slice(0, 4).map((photo: any, index: number) => (
               <button key={photo}
-                className="image-button"
+                className='image-button'
                 onClick={() => {
-                  handlePictureChange(photo);
+                  handlePictureChange(photo, index);
                 }}
               >
                 {photo ? (
                   <img key={photo}
-                    className="candid-image"
+                    className={
+                      `candid-image
+                       ${selectedPhotosIndexes.includes(index) ? 'highlight-image' : ''}`
+                    }
                     src={photo}
                     alt="Candid Image"
                   />
@@ -75,16 +82,19 @@ const Collage = () => {
             ))}
           </div>
           <div className="selection-row">
-            {photos.slice(4, 8).map((photo: any) => (
+            {photos.slice(4, 8).map((photo: any, index: number) => (
               <button key={photo}
                 className="image-button"
                 onClick={() => {
-                  handlePictureChange(photo);
+                  handlePictureChange(photo, index + 4);
                 }}
               >
                 {photo ? (
                   <img key={photo}
-                    className="candid-image"
+                    className={
+                      `candid-image
+                       ${selectedPhotosIndexes.includes(index + 4) ? 'highlight-image' : ''}`
+                    }
                     src={photo}
                     alt="Candid Image"
                   />
