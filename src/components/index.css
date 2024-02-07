@@ -79,9 +79,8 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 5px;
-}
-.image-item {
+  gap: 7px;
+}.image-item {
   flex: 1 0 20%;
   height: 225px;
   width: 175px;
@@ -92,9 +91,9 @@
   object-fit: cover;
 }.image-item-row {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }.lower-img {
-  margin-top: 7px;
+  margin-top: 10px;
 }
 
 /* Candid Print Button */
