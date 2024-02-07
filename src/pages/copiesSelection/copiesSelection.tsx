@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import CandidHeading from '../../components/candidHeader';
 import CircularBtn from '../../components/circularBtn';
+import { useCandidContext } from '../../context/storeContext';
 import './copiesStyling.css';
 
 const CopiesSelection = () => {
   const navigate = useNavigate();
-  const [numberOfCopies, setNumberOfCopies] = useState<number>(1);
+  const { numberOfCopies, setNumberOfCopies } = useCandidContext();
   const pricePerCopy = 200;
 
   const handleCopyBtnClick = (copiesWanted: number) => {
@@ -54,7 +54,7 @@ const CopiesSelection = () => {
           <div className='next-icon-placement'>
             <CircularBtn
               onClick={() => {navigateToNextPage()}}
-              buttonText='GO TO GET CANDID'
+              buttonText='READY TO BE CANDID'
               iconUrl='/assets/images/png/next_icon.png'
             />
           </div>
