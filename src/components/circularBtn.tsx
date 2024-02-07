@@ -2,23 +2,25 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import './index.css';
 
-interface PrintButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface CircularButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick: () => void;
+  buttonText: string;
+  iconUrl: string;
 }
 
-const PrintBtn: React.FC<PrintButtonProps> = ({ onClick }) => {
+const CircularBtn: React.FC<CircularButtonProps> = ({ onClick, buttonText, iconUrl }) => {
   return (
     <button className="print-btn" onClick={onClick}>
       <div className='transparent-circle'>
         <div className='curved-text-container'>
           <img
             className='printer-img'
-            src='/assets/images/png/printer_icon.png'
+            src={iconUrl}
           />
           <div className='curved-text'>
             <p className='bungee-text'>
               {
-                "PRINT YOUR PICTURE "
+                buttonText
                 .split("")
                 .map(
                   (char, index) =>
@@ -33,4 +35,4 @@ const PrintBtn: React.FC<PrintButtonProps> = ({ onClick }) => {
   )
 }
 
-export default PrintBtn
+export default CircularBtn

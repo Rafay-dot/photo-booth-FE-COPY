@@ -1,0 +1,58 @@
+
+.copies-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 75px;
+}
+
+.dummy-polaroid-img {
+  width: 175px;
+}.dull-img {
+  opacity: 50%;
+}
+
+.copy-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}.copy-text {
+  font-family: 'Michroma', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.copies-btn-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  gap: 20px;
+}.copy-btn {
+  width: 75px;
+  height: 75px;
+  border-radius: 5px;
+  border: none;
+}.default {
+  background-color: #D9D9D9;
+}.highlight {
+  background-color: #FC5056;
+}
+
+.price-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}.price-text {
+  color: #FC5056;
+  font-size: 45px;
+}
+
+.next-icon-placement {
+  position: absolute;
+  right: 40px
+}

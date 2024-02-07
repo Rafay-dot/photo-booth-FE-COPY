@@ -3,7 +3,7 @@
 
 body {
   margin: 0;
-  font-family: 'Michroma', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Michroma', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #171143;
@@ -13,9 +13,7 @@ body {
   position: relative;
   overflow: hidden;
   padding: 0px;
-}
-
-body::before {
+} body::before {
   content: '';
   position: absolute;
   top: 0;
@@ -27,18 +25,24 @@ body::before {
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   opacity: 0.5; /* Adjust the opacity to control the intensity of the noise */
   pointer-events: none;
-}
-
-code {
+} code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} p {
+  margin: 0;
+  padding: 0;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 35px;
+}
 .bungee-text {
   font-family: 'Bungee', sans-serif;
 }
-
-p {
-  margin: 0;
-  padding: 0;
+.evenly-spaced-col {
+  justify-content: space-between;
 }

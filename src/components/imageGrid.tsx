@@ -14,7 +14,7 @@ const ImageGrid: React.FC<ImagesProps> = ({ imageUrls }) => {
           {[0, 1].map((colIndex) => (
             <div
               key={rowIndex * 2 + colIndex}
-              className={`image-item ${rowIndex % 2 !== 0 ? 'lower-img' : ''}`}
+              className={`image-item ${colIndex === 0 ? 'lower-img' : ''}`}
             >
               <img
                 src={imageUrls[rowIndex * 2 + colIndex]}

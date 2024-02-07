@@ -2,12 +2,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
-import PrintBtn from "../../components/printBtn";
+import CircularBtn from "../../components/circularBtn";
 import CandidHeading from "../../components/candidHeader";
 import CandidPolaroid from "../../components/candidPolaroid";
 import "./polaroidStyling.css";
 
-const Collage = () => {
+const PhotoSelection = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -57,64 +57,38 @@ const Collage = () => {
         <CandidPolaroid photoUrls={photoUrls} componentRef={componentRef} />
         {/* 8 Pictures Grid + Button */}
         <div className="selection-container">
-          <div className="selection-row">
-            {photos.slice(0, 4).map((photo: any, index: number) => (
-              <button
-                key={photo}
-                className="image-button"
-                onClick={() => {
-                  handlePictureChange(photo, index);
-                }}
-              >
-                {photo ? (
-                  <img
-                    key={photo}
-                    className={`candid-image
-                       ${
-                         selectedPhotosIndexes.includes(index)
-                           ? "highlight-image"
-                           : ""
-                       }`}
-                    src={photo}
-                    alt="Candid Image"
-                  />
-                ) : (
-                  ""
-                )}
-              </button>
-            ))}
-          </div>
-          <div className="selection-row">
-            {photos.slice(4, 8).map((photo: any, index: number) => (
-              <button
-                key={photo}
-                className="image-button"
-                onClick={() => {
-                  handlePictureChange(photo, index + 4);
-                }}
-              >
-                {photo ? (
-                  <img
-                    key={photo}
-                    className={`candid-image
-                       ${
-                         selectedPhotosIndexes.includes(index + 4)
-                           ? "highlight-image"
-                           : ""
-                       }`}
-                    src={photo}
-                    alt="Candid Image"
-                  />
-                ) : (
-                  ""
-                )}
-              </button>
-            ))}
-          </div>
+          {
+            [0, 4].map((row) => (
+              <div className="selection-row">
+                {photos.slice(0 + row, 4 + row).map((photo: any, index: number) => (
+                  <button key={photo}
+                    className="image-button"
+                    onClick={() => {
+                      handlePictureChange(photo, index + row);
+                    }}
+                  >
+                    {photo ? (
+                      <img key={photo}
+                        className={`candid-image
+                          ${ selectedPhotosIndexes.includes(index + row) ? "highlight-image" : "" }`
+                        }
+                        src={photo}
+                        alt="Candid Image"
+                      />
+                    ) :  "" }
+                  </button>
+                ))}
+              </div>
+            ))
+          }
           {/* Print Button */}
           <div className="selection-row print-btn-placement">
             <a href={url} download="captured-image.jpg">
-              <PrintBtn onClick={() => { printClick(); }}/>
+              <CircularBtn
+                onClick={() => { printClick(); }}
+                buttonText="PRINT YOUR PICTURE "
+                iconUrl="/assets/images/png/printer_icon.png"
+              />
             </a>
           </div>
         </div>
@@ -123,4 +97,4 @@ const Collage = () => {
   );
 };
 
-export default Collage;
+export default PhotoSelection;

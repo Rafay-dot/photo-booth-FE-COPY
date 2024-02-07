@@ -2,13 +2,7 @@
 	font-family: kamikaze;
 	src: url(../../assets/fonts/Kamikaze.ttf);
 }
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  padding: 40px;
-}.camera-container {
+.camera-container {
   display: flex;
   flex-direction: column;
   justify-content: center;

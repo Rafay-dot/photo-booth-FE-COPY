@@ -36,7 +36,7 @@ export const Camera = () => {
       clearInterval(countdownInterval);
       setTriggerCountDown(false);
       setCountdown(0);
-      navigate("/template-selector", {
+      navigate("/polaroid", {
         state: { images: photoUrlsRef.current },
       });
     }
