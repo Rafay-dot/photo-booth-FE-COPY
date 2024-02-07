@@ -21,8 +21,9 @@
   padding: 0px 5px;
   align-items: center;
   justify-content: center;
-} .polaroid-text {
-  font-family: 'Michroma', sans-serif;
+}
+.polaroid-text {
+  font-family: "Michroma", sans-serif;
   font-size: 15px;
   color: white;
   letter-spacing: 2px;
@@ -33,25 +34,31 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-}.selection-row {
+}
+.selection-row {
   display: flex;
   align-items: center;
   justify-content: center;
-}.image-button {
+}
+.image-button {
   background: transparent;
   width: 150px;
   height: 150px;
   margin: 7px;
   padding: 0;
   border: none;
-}.highlight-image {
-  border: 2px solid #FC5056;
+}
+.highlight-image {
+  border: 2px solid #fc5056;
   border-radius: 10px;
   z-index: 100;
-}.candid-image {
+}
+.candid-image {
   width: 150px;
   height: 155px;
   border-radius: 10px;
-}.print-btn-placement {
+  object-fit: cover;
+}
+.print-btn-placement {
   margin-top: 30px;
 }
