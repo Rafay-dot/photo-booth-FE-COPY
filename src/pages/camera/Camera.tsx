@@ -36,9 +36,11 @@ export const Camera = () => {
       clearInterval(countdownInterval);
       setTriggerCountDown(false);
       setCountdown(0);
-      navigate("/template-selector", { state: { images: photoUrlsRef.current } });
+      navigate("/template-selector", {
+        state: { images: photoUrlsRef.current },
+      });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pictureCount, navigate]);
 
   useEffect(() => {

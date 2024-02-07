@@ -16,7 +16,9 @@ const Collage = () => {
   const [url, setUrl] = useState<string>("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [photoUrls, setPhotoUrls] = useState<string[]>([...photos]);
-  const [selectedPhotosIndexes, setSelectedPhotosIndexes] = useState<number[]>([0, 1, 2, 3]);
+  const [selectedPhotosIndexes, setSelectedPhotosIndexes] = useState<number[]>([
+    0, 1, 2, 3,
+  ]);
 
   useEffect(() => {
     captureComponent();
@@ -29,7 +31,7 @@ const Collage = () => {
     temp_selectedPhotosIndexes[selectedIndex] = imageIndex;
     if (selectedIndex === 3) {
       setSelectedIndex(0);
-    } else setSelectedIndex((prevCount) => prevCount += 1);
+    } else setSelectedIndex((prevCount) => (prevCount += 1));
     setPhotoUrls(temp_selectedPhotos);
     setSelectedPhotosIndexes(temp_selectedPhotosIndexes);
   };
@@ -57,43 +59,55 @@ const Collage = () => {
         <div className="selection-container">
           <div className="selection-row">
             {photos.slice(0, 4).map((photo: any, index: number) => (
-              <button key={photo}
-                className='image-button'
+              <button
+                key={photo}
+                className="image-button"
                 onClick={() => {
                   handlePictureChange(photo, index);
                 }}
               >
                 {photo ? (
-                  <img key={photo}
-                    className={
-                      `candid-image
-                       ${selectedPhotosIndexes.includes(index) ? 'highlight-image' : ''}`
-                    }
+                  <img
+                    key={photo}
+                    className={`candid-image
+                       ${
+                         selectedPhotosIndexes.includes(index)
+                           ? "highlight-image"
+                           : ""
+                       }`}
                     src={photo}
                     alt="Candid Image"
                   />
-                ) : ""}
+                ) : (
+                  ""
+                )}
               </button>
             ))}
           </div>
           <div className="selection-row">
             {photos.slice(4, 8).map((photo: any, index: number) => (
-              <button key={photo}
+              <button
+                key={photo}
                 className="image-button"
                 onClick={() => {
                   handlePictureChange(photo, index + 4);
                 }}
               >
                 {photo ? (
-                  <img key={photo}
-                    className={
-                      `candid-image
-                       ${selectedPhotosIndexes.includes(index + 4) ? 'highlight-image' : ''}`
-                    }
+                  <img
+                    key={photo}
+                    className={`candid-image
+                       ${
+                         selectedPhotosIndexes.includes(index + 4)
+                           ? "highlight-image"
+                           : ""
+                       }`}
                     src={photo}
                     alt="Candid Image"
                   />
-                ) : ""}
+                ) : (
+                  ""
+                )}
               </button>
             ))}
           </div>
