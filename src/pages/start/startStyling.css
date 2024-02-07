@@ -1,11 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Kanit:500,900');
-@font-face {
-	font-family: kamikaze;
-	src: url(../../assets/fonts/Kamikaze.ttf);
-}
-
 .page {
 	margin:0;
 	--color-text: #00ff3c;

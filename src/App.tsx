@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Otp from "./pages/otp/Otp";
 import Start from "./pages/start/Start";
 import Camera from "./pages/camera/Camera";
 import WaitPrompt from "./pages/prompt/waitPrompt";
 import PhotoSelection from "./pages/photoSelection/photoSelection";
 import CopiesSelection from "./pages/copiesSelection/copiesSelection";
+
 import { CandidProvider } from "./context/storeContext";
 
 const App = () => {
@@ -12,6 +14,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Start />} />
+          <Route path="/otp" element={<Otp />} />
           <Route path="/copies" element={<CopiesSelection />} />
           <Route path="/camera" element={<Camera />} />
           <Route path="/polaroid" element={<PhotoSelection />} />

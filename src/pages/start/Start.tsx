@@ -9,7 +9,7 @@ const Start = () => {
     <div
       className="page"
       onClick={() => {
-        navigate("/copies");
+        navigate("/otp");
       }}
     >
       <div className="frame">

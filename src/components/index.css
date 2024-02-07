@@ -1,9 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Kanit:500,900');
-@font-face {
-	font-family: kamikaze;
-	src: url(../assets/fonts/Kamikaze.ttf);
-}
-
 /* Camera Button Styling */
 .button-container {
   position: relative;
