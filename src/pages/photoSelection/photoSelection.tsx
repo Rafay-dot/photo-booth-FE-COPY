@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
-import ImageGrid from "../../components/imageGrid";
-import PrintBtn from "../../components/print_btn";
-import CandidHeading from "../../components/candid_header";
-import "./styles.css";
-import { getTodayDateInRomanNumeral } from "../../utils/helper";
+import PrintBtn from "../../components/printBtn";
+import CandidHeading from "../../components/candidHeader";
+import CandidPolaroid from "../../components/candidPolaroid";
+import "./polaroidStyling.css";
 
 const Collage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const componentRef = useRef(null);
   const photos = location.state?.images;
   const [url, setUrl] = useState<string>("");
@@ -39,6 +40,10 @@ const Collage = () => {
       setUrl(image);
     }
   };
+  const printClick = async () => {
+    await captureComponent();
+    navigate("/wait-screen");
+  }
 
   return (
     <div className="container">
@@ -47,17 +52,7 @@ const Collage = () => {
       {/* Page Content */}
       <div className="page-content">
         {/* This is the Collage/Polaroid */}
-        <div
-          className="polaroid"
-          ref={componentRef}
-        >
-          <p className="polaroid-text">CANDID</p>
-          <div>
-            <ImageGrid imageUrls={photoUrls} />
-          </div>
-          {/* TODO: Add date functionality */}
-          <p className="polaroid-text">{ getTodayDateInRomanNumeral() }</p>
-        </div>
+        <CandidPolaroid photoUrls={photoUrls} componentRef={componentRef} />
         {/* 8 Pictures Grid + Button */}
         <div className="selection-container">
           <div className="selection-row">
@@ -104,7 +99,9 @@ const Collage = () => {
           </div>
           {/* Print Button */}
           <div className="selection-row print-btn-placement">
-            <PrintBtn onClick={() => { captureComponent(); }}/>
+            <a href={url} download="captured-image.jpg">
+              <PrintBtn onClick={() => { printClick(); }}/>
+            </a>
           </div>
         </div>
       </div>

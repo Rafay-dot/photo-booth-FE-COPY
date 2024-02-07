@@ -150,3 +150,21 @@
   font-size: 20px;
   transform-origin: 0 75px;
 }
+
+/* Styling For the Collage */
+.polaroid {
+  background: black;
+  border: 5px solid black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 5px;
+  align-items: center;
+  justify-content: center;
+} .polaroid-text {
+  font-family: 'Michroma', sans-serif;
+  font-size: 15px;
+  color: white;
+  letter-spacing: 2px;
+  padding: 20px;
+}
