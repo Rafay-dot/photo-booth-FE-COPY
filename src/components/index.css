@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: center;
   z-index: 100;
-}.capture-circle-overlay {
+}
+.capture-circle-overlay {
   position: absolute;
   z-index: -1;
   left: calc(50% - 32.5px);
@@ -13,19 +14,22 @@
   width: 65px;
   height: 65px;
   border-radius: 50%;
-}.button-grid {
+}
+.button-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   gap: 10px;
   background-color: white;
   border-radius: 10px;
   padding: 0px 10px;
-}.grid-item {
+}
+.grid-item {
   display: flex;
   width: 100px;
   align-items: center;
   justify-content: center;
-}.circle-grid-item {
+}
+.circle-grid-item {
   display: flex;
   width: 50px;
   align-items: center;
@@ -33,7 +37,7 @@
 }
 
 .capture-text {
-  font-family: 'Michroma', sans-serif;
+  font-family: "Michroma", sans-serif;
   font-size: 12px;
 }
 
@@ -44,10 +48,11 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid #FC5056;
+  border: 2px solid #fc5056;
   background-color: white;
-}.capture-circle-inner {
-  background-color: #FC5056;
+}
+.capture-circle-inner {
+  background-color: #fc5056;
   border-radius: 50%;
   width: 80%;
   height: 80%;
@@ -58,14 +63,17 @@
   justify-content: space-between;
   align-items: center;
   width: 80%;
-}.line {
+}
+.line {
   width: 3px;
   height: 25px;
   border-radius: 10px;
-}.default-line {
-  background-color: #D9D9D9;
-}.colored-line {
-  background-color: #FC5056;
+}
+.default-line {
+  background-color: #d9d9d9;
+}
+.colored-line {
+  background-color: #fc5056;
 }
 /* Candid Page heading styling */
 .candid-heading {
@@ -80,19 +88,23 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: 7px;
-}.image-item {
+}
+.image-item {
   flex: 1 0 20%;
   height: 225px;
-  width: 175px;
-}.image-item img {
+  width: 190px;
+}
+.image-item img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
-}.image-item-row {
+}
+.image-item-row {
   display: flex;
   gap: 10px;
-}.lower-img {
+}
+.lower-img {
   margin-top: 10px;
 }
 
@@ -100,7 +112,8 @@
 .print-btn {
   background: none;
   border: none;
-}.transparent-circle {
+}
+.transparent-circle {
   background: none;
   position: relative;
   display: flex;
@@ -109,19 +122,22 @@
   border-radius: 50%;
   height: 150px;
   width: 150px;
-}.curved-text-container {
+}
+.curved-text-container {
   position: absolute;
   width: 100%;
   height: 100%;
-}.printer-img {
+}
+.printer-img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 50%;
   width: 50%;
-}.curved-text {
-  color: #FC5056;
+}
+.curved-text {
+  color: #fc5056;
   shape-outside: circle(50%);
   float: left;
   font-weight: 900;
@@ -137,7 +153,7 @@
     transform: rotate(0deg);
   }
 }
-.curved-text span{
+.curved-text span {
   position: absolute;
   left: 50%;
   font-size: 20px;
@@ -151,13 +167,20 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 0px 5px;
+  padding: 0px 10px;
   align-items: center;
   justify-content: center;
-} .polaroid-text {
-  font-family: 'Michroma', sans-serif;
+}
+.polaroid-text {
+  font-family: "Michroma", sans-serif;
   font-size: 15px;
   color: white;
   letter-spacing: 2px;
-  padding: 20px;
+  padding: 15px;
+}
+.polaroid-container {
+  background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }

@@ -6,6 +6,7 @@ import CircularBtn from "../../components/circularBtn";
 import CandidHeading from "../../components/candidHeader";
 import CandidPolaroid from "../../components/candidPolaroid";
 import "./polaroidStyling.css";
+import { useCandidContext } from "../../context/storeContext";
 
 const PhotoSelection = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ const PhotoSelection = () => {
   const [selectedPhotosIndexes, setSelectedPhotosIndexes] = useState<number[]>([
     0, 1, 2, 3,
   ]);
+  const { numberOfCopies } = useCandidContext();
 
   useEffect(() => {
     captureComponent();
@@ -45,7 +47,7 @@ const PhotoSelection = () => {
   const printClick = async () => {
     await captureComponent();
     navigate("/wait-screen");
-  }
+  };
 
   return (
     <div className="container">
@@ -57,35 +59,44 @@ const PhotoSelection = () => {
         <CandidPolaroid photoUrls={photoUrls} componentRef={componentRef} />
         {/* 8 Pictures Grid + Button */}
         <div className="selection-container">
-          {
-            [0, 4].map((row) => (
-              <div className="selection-row">
-                {photos.slice(0 + row, 4 + row).map((photo: any, index: number) => (
-                  <button key={photo}
+          {[0, 4].map((row) => (
+            <div className="selection-row">
+              {photos
+                .slice(0 + row, 4 + row)
+                .map((photo: any, index: number) => (
+                  <button
+                    key={photo}
                     className="image-button"
                     onClick={() => {
                       handlePictureChange(photo, index + row);
                     }}
                   >
                     {photo ? (
-                      <img key={photo}
+                      <img
+                        key={photo}
                         className={`candid-image
-                          ${ selectedPhotosIndexes.includes(index + row) ? "highlight-image" : "" }`
-                        }
+                          ${
+                            selectedPhotosIndexes.includes(index + row)
+                              ? "highlight-image"
+                              : ""
+                          }`}
                         src={photo}
                         alt="Candid Image"
                       />
-                    ) :  "" }
+                    ) : (
+                      ""
+                    )}
                   </button>
                 ))}
-              </div>
-            ))
-          }
+            </div>
+          ))}
           {/* Print Button */}
           <div className="selection-row print-btn-placement">
-            <a href={url} download="captured-image.jpg">
+            <a href={url} download={`captured-image${numberOfCopies}.jpg`}>
               <CircularBtn
-                onClick={() => { printClick(); }}
+                onClick={() => {
+                  printClick();
+                }}
                 buttonText="PRINT YOUR PICTURE "
                 iconUrl="/assets/images/png/printer_icon.png"
               />

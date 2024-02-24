@@ -20,7 +20,7 @@ export const Camera = () => {
 
   let countdownInterval: string | number | NodeJS.Timer | undefined;
   const videoConstraints = {
-    width: 126,
+    width: 137,
     height: 162,
     facingMode: "user",
   };

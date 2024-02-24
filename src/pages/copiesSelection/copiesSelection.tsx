@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import CandidHeading from '../../components/candidHeader';
-import CircularBtn from '../../components/circularBtn';
-import { useCandidContext } from '../../context/storeContext';
-import './copiesStyling.css';
+import CandidHeading from "../../components/candidHeader";
+import CircularBtn from "../../components/circularBtn";
+import { useCandidContext } from "../../context/storeContext";
+import "./copiesStyling.css";
 
 const CopiesSelection = () => {
   const navigate = useNavigate();
@@ -11,56 +11,58 @@ const CopiesSelection = () => {
 
   const handleCopyBtnClick = (copiesWanted: number) => {
     setNumberOfCopies(copiesWanted);
-  }
+  };
 
   const navigateToNextPage = () => {
     navigate("/camera");
-  }
+  };
 
   return (
-    <div className='container evenly-spaced-col'>
+    <div className="container evenly-spaced-col">
       <CandidHeading text="CANDID PHOTOBOOTH" />
-      <div className='copies-row'>
+      <div className="copies-row">
         {[...Array(4)].map((_, index) => (
-          <img key={index}
+          <img
+            key={index}
             className={`dummy-polaroid-img
-              ${(numberOfCopies < index + 1) ? 'dull-img' : ''}`
-            }
-            src='/assets/images/png/dummyPolaroid.png'
+              ${numberOfCopies < index + 1 ? "dull-img" : ""}`}
+            src="/assets/images/png/dummyPolaroid.png"
             alt={`Dummy Polaroid ${index + 1}`}
             onClick={() => handleCopyBtnClick(index + 1)}
           />
         ))}
       </div>
-      <div className='copies-row'>
-        <div className='copy-text-container'>
-          <p className='copy-text'>How many copies would you like ?</p>
+      <div className="copies-row">
+        <div className="copy-text-container">
+          <p className="copy-text">How many copies would you like ?</p>
         </div>
-        <div className='copies-btn-row'>
+        <div className="copies-btn-row">
           {[...Array(4)].map((_, index) => (
-            <button key={index}
+            <button
+              key={index}
               className={`copy-btn default
-                ${(numberOfCopies < index + 1) ? 'default' : 'highlight'}`
-              }
+                ${numberOfCopies < index + 1 ? "default" : "highlight"}`}
               onClick={() => handleCopyBtnClick(index + 1)}
             />
           ))}
         </div>
       </div>
-      <div className='price-row'>
-          <h1 className='price-text bungee-text'>
-            R.s {pricePerCopy * numberOfCopies}
-          </h1>
-          <div className='next-icon-placement'>
-            <CircularBtn
-              onClick={() => {navigateToNextPage()}}
-              buttonText='READY TO BE CANDID'
-              iconUrl='/assets/images/png/next_icon.png'
-            />
-          </div>
+      <div className="price-row">
+        <h1 className="price-text bungee-text">
+          Rs. {pricePerCopy * numberOfCopies}
+        </h1>
+        <div className="next-icon-placement">
+          <CircularBtn
+            onClick={() => {
+              navigateToNextPage();
+            }}
+            buttonText="READY TO BE CANDID"
+            iconUrl="/assets/images/png/next_icon.png"
+          />
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default CopiesSelection;
