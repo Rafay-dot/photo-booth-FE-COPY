@@ -1,3 +1,24 @@
+# Photobooth Web Application
+
+This is a photobooth web application built with **React** and **TypeScript** using **Electron** for a desktop experience. The application allows users to capture photos, providing a fun and interactive photo booth experience.
+
+## Features
+
+- **Capture Photos**: Take pictures using the webcam.
+- **Choose layout**: Choose from different photos for the layout.
+- **Save Photos**: Download photos taken during the session.
+- **Electron-Based**: A desktop version built using Electron for cross-platform support.
+- **Print Pictures**: The python script will help print the image directly from the app
+
+## Technologies Used
+
+- **React**: For building the user interface.
+- **TypeScript**: For static type checking and enhancing development workflow.
+- **Electron**: For packaging the app as a desktop application.
+- **CSS/Styled Components**: For styling the application.
+- **Webcam API**: To interact with the user's camera for capturing photos.
+
+  
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
